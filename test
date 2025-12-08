@@ -10,7 +10,7 @@ sound.set_volume(1.0)
 print("Playing sound...")
 sound.play()
 
-time.sleep(3)  # keep program alive long enough to hear it
+time.sleep(3)  
 
 pygame.quit()
 

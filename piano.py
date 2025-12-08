@@ -3,6 +3,7 @@ import pygame
 
 print("RUNNING PIANO DASH FILE")
 
+
 HIGH_SCORE_FILE = "highscore.txt"
 
 
@@ -23,7 +24,7 @@ def save_high_score(value):
 
 
 pygame.mixer.pre_init(44100, -16, 2, 512)
-pygame.init()
+pygame.init()                                              #pygame initialization
 
 WIDTH, HEIGHT = 288, 512
 SCREEN = (WIDTH, HEIGHT)
@@ -75,20 +76,20 @@ class Tile(pygame.sprite.Sprite):
         self.rect.y += self.speed
 
 
-def spawn_tile(group, speed):
+def spawn_tile(group, speed):                          #tile class spawn function
     col = random.randint(0, 3)
     tile = Tile(col, -TILE_HEIGHT, speed)
     group.add(tile)
 
 
-def draw_grid(surface):
+def draw_grid(surface):     #drawgrid
     for i in range(5):
         pygame.draw.line(surface, GRAY, (0, i * TILE_HEIGHT), (WIDTH, i * TILE_HEIGHT), 1)
     for i in range(5):
         pygame.draw.line(surface, GRAY, (i * TILE_WIDTH, 0), (i * TILE_WIDTH, HEIGHT), 1)
 
 
-def main():
+def main():                  #main function
     MENU = "menu"
     PLAYING = "playing"
     GAME_OVER = "game_over"
@@ -141,7 +142,7 @@ def main():
                     current_bg = None
                     state = MENU
 
-        if state == MENU:
+        if state == MENU:                   #menu 
             win.blit(HOME_BG, (0, 0))
 
             title = big_font.render("Piano Dash", True, WHITE)
@@ -198,7 +199,7 @@ def main():
             pygame.display.flip()
             continue
 
-        if state == PLAYING:
+        if state == PLAYING:                 #playing state
             tiles.update()
 
             if click_pos:
@@ -265,7 +266,7 @@ def main():
 
         pygame.display.flip()
 
-    pygame.quit()
+    pygame.quit()          #quit pygame
 
 
 if __name__ == "__main__":
