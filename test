@@ -1,0 +1,16 @@
+import pygame
+import time
+
+pygame.mixer.pre_init(44100, -16, 2, 512)
+pygame.init()
+
+sound = pygame.mixer.Sound("assets/random.wav")
+sound.set_volume(1.0)
+
+print("Playing sound...")
+sound.play()
+
+time.sleep(3)  # keep program alive long enough to hear it
+
+pygame.quit()
+
